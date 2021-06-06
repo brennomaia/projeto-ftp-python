@@ -1,15 +1,11 @@
-import os
+import glob
 import shutil
 
-caminho_origen = '\Users\brenno.maia\Documents\GitHub\projeto-ftp-python'
-caminho_dest = '\\redbull\Atendimento\#Geral\#Atualizacao-Arquivos-Executaveis-Geral\Claro-Net\NETSMS\test-exe'
+caminho_origen = '/projeto-net/projeto-ftp-python/'
+caminho_dest = '/teste-arq/'
+nome_arquivo = 'novosigma.exe'
 
-try: 
-    os.mkdir(caminho_origen)
-except FileExistsError as e:
-    print(f'Pasta {caminho_dest} já existe')
+print(glob.glob(caminho_origen))
 
-for root, dirs, files in os.walk(caminho_origen):
-    for file in files:
-        old_file_path = os.path.join(root, file)
-        print(file)
+#Capia e cola o novosima.exe para a pasta de destino
+shutil.copy(caminho_origen + nome_arquivo, caminho_dest)
