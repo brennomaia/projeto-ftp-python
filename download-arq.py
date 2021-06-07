@@ -34,3 +34,5 @@ print("Inciando o download do arquivo...")
 with open(file_name, 'wb') as local_arquivo:
     ftp.retrbinary('RETR ' + file_name, local_arquivo.write, 100000)
     ftp.quit()
+
+
