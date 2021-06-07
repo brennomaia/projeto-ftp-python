@@ -3,18 +3,21 @@ import os
 from dotenv import load_dotenv
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from datetime import date
 
 #Informações do email para conexão e envio
 email_from = os.getenv('email_from')
 email_passwd = os.getenv('email_passwd')
 email_to = os.getenv('email_to')
 
+data_today = date.today()
+
 #Conectando a onta de email
+
 host = os.getenv('host')
 server = smtplib.SMTP(host, 587)
 server.starttls()
 server.login(email_from, email_passwd)
-
 
 #Corpo do email
 body_msg = """
@@ -25,7 +28,7 @@ MONDAMOM
 msg = MIMEMultipart()
 msg['From'] = email_from
 msg['To'] = email_to
-msg['Subject'] = "Testando Email"
+msg['Subject'] = "Testando Email " + data_today.strftime("%d %b %Y ")
 msg.attach(MIMEText(body_msg,'html'))
 
 #Eviando o email.
