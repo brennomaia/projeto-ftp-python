@@ -20,15 +20,12 @@ server.starttls()
 server.login(email_from, email_passwd)
 
 #Corpo do email
-body_msg = """
-YOOOOOOOOOOOOOOOOOOOOOOOOO
-MONDAMOM
-"""
+body_msg = "Um novo Patch de atualização foi encotrado.\n Para agendar a tarefa de atualização, digite a senha de confirmação: \n Para Cancelar/Stand-by a terefa, digite: GMUD cancelada"
 ### Criando o email para envio
 msg = MIMEMultipart()
 msg['From'] = email_from
 msg['To'] = email_to
-msg['Subject'] = "Testando Email " + data_today.strftime("%d %b %Y ")
+msg['Subject'] = "Agendar a GMUD novosima " + data_today.strftime("%d %b %Y ")
 msg.attach(MIMEText(body_msg,'html'))
 
 #Eviando o email.

@@ -29,7 +29,7 @@ email_id = id_email[0].split()
 
 
 #Trazendo o id"email" mais recente
-id_email_recent = email_id[0]
+id_email_recent = email_id[-1]
 
 #Trazendo o id"mail" mais antigo
 #id_email_old = email_id[0]
@@ -42,8 +42,9 @@ message = email.message_from_bytes(b)
 for part in message.walk():
     if part.get_content_type() == "text/plain" or part.get_content_type() == "text/html":
         body = part.get_payload(decode=True)
-        print(body)
+        body2 = str(body)
 
-
-
-
+        if 'n33v0x' in body2:
+            
+        else:
+            print("Palavra não contrada")
